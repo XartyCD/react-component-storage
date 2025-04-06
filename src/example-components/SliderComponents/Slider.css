@@ -1,0 +1,141 @@
+.slider-wrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  flex: 0 0 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slider-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 70px;
+  align-items: center;
+  height: 100%;
+}
+
+.text-content {
+  max-width: 50%;
+  color: #fff;
+  padding: 20px;
+}
+
+.slider-image {
+  max-width: 40%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Стрелки */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.arrow-left {
+  left: 20px;
+}
+
+.arrow-right {
+  right: 20px;
+}
+
+/* Точки */
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-wrapper {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot-wrapper:not(.active):hover {
+  transform: translateY(-4px);
+}
+
+/* Центральная точка внутри активной */
+.center-fill {
+  fill: #fff;
+  opacity: 0;
+  transform: scale(0.4);
+  transform-origin: center;
+  transition: opacity 0.4s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.center-fill.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* SVG кольцо прогресса */
+.progress-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 3;
+}
+
+.progress {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.progress.animating {
+  animation: fillCircle 15s linear forwards;
+}
+
+/* Анимация кольца */
+@keyframes fillCircle {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

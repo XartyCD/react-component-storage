@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function Login() {
+export default function LoginForm1() {
   const [data, setData] = useState({ username: "", password: "" })
 
   // действия при нажатии submit
@@ -45,5 +45,3 @@ function Login() {
     </>
   )
 }
-
-export default Login
